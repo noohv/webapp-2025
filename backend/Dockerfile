@@ -10,6 +10,7 @@ RUN apk add curl
 
 EXPOSE 5050
 
+
 CMD [ "start" ]
 ENTRYPOINT [ "npm" ]
 
