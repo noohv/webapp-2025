@@ -20,11 +20,11 @@ jobs:
             backend:
               - 'backend/**'
       - name: Build Backend application
-        if: steps.filter.outputs.backend = 'true'
+        if: steps.filter.outputs.backend == 'true'
         uses: ./.github/actions/build
-          with:
-            application: backend
-            docker_image_tag: valtershuns/webapp-backend
+        with:
+          application: backend
+          docker_image_tag: valtershuns/webapp-backend
   build-frontend:
     name: Build Frontend
     runs-on: self-hosted
@@ -38,11 +38,11 @@ jobs:
             frontend:
               - 'frontend/**'
       - name: Build Frontend application
-        if: steps.filter.outputs.frontend = 'true'
+        if: steps.filter.outputs.frontend == 'true'
         uses: ./.github/actions/build
-          with:
-            application: frontend
-            docker_image_tag: valtershuns/webapp-frontend
+        with:
+          application: frontend
+          docker_image_tag: valtershuns/webapp-frontend
   deploy-backened-dev:
     name: Delploy Backend to Kubernetes DEV
     runs-on: self-hosted
